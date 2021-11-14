@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BookStore.Enums;
 using BookStore.Interfaces;
 using BookStore.Models;
+using BookStore.Services;
 
 namespace BookStore
 {
@@ -18,6 +19,8 @@ namespace BookStore
         {
             InitializeModels();
             InitializeCarts();
+            var totalPrice1 = CartService.GetFinalPrice(_cart1);
+            var totalPrice2 = CartService.GetFinalPrice(_cart2);
         }
 
         private static void InitializeCarts()
