@@ -1,6 +1,6 @@
 ﻿using BookStore.Interfaces;
 
-namespace BookStore.Models
+namespace BookStore.Models.Books
 {
     public class PaperBook : IBook
     {
