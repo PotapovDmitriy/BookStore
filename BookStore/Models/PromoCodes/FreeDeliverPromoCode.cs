@@ -5,7 +5,7 @@ namespace BookStore.Models.PromoCodes
 {
     public class FreeDeliverPromoCode : IPromoCode
     {
-        public double GetSaleSum(List<IBook> books, double totalSum, double deliverPrice)
-            => deliverPrice;
+        public double GetSaleSum(List<IBook> books, double? totalSum = null, double? deliverPrice = null)
+            => deliverPrice?? 0;
     }
 }
