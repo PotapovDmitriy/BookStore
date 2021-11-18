@@ -3,13 +3,16 @@ using BookStore.Interfaces;
 
 namespace BookStore.Models.PromoCodes
 {
-    public class SalePercentPromoCode: IPromoCode
+    public class SalePercentPromoCode : IPromoCode
     {
-        public SalePercentPromoCode(double value) { Value = value; }
+        public SalePercentPromoCode(double value)
+        {
+            Value = value;
+        }
 
         public double Value { get; set; }
 
-        public double GetSaleSum(List<IBook> books, double? totalSum = null, double? deliverPrice = null)
-            => Value * (totalSum ?? 0) / 100;
+        public double GetSaleSum(IPromoCodeItem item)
+            => Value * (item.TotalSum ?? 0) / 100;
     }
 }

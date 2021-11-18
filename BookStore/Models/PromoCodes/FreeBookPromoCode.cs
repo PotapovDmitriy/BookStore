@@ -7,9 +7,12 @@ namespace BookStore.Models.PromoCodes
     {
         public IBook Book { get; }
 
-        public FreeBookPromoCode(IBook book) { Book = book; }
+        public FreeBookPromoCode(IBook book)
+        {
+            Book = book;
+        }
 
-        public double GetSaleSum(List<IBook> books, double? totalSum = null, double? deliverPrice = null) =>
-            books.Contains(Book) ? Book.Price : 0;
+        public double GetSaleSum(IPromoCodeItem item) =>
+            item.Books.Contains(Book) ? Book.Price : 0;
     }
 }

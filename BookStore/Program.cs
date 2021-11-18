@@ -4,6 +4,7 @@ using BookStore.Enums;
 using BookStore.Interfaces;
 using BookStore.Models;
 using BookStore.Models.Books;
+using BookStore.Models.Delivers;
 using BookStore.Models.PromoCodes;
 using BookStore.Models.Stocks;
 using BookStore.Services;
@@ -13,6 +14,7 @@ namespace BookStore
     class Program
     {
         private static IStock _stock;
+        private static IDeliver _deliver;
         private static Cart _cart1, _cart2;
         private static IPromoCode _freeBookPromo, _freeDeliverPromo, _percentPromo, _saleCurrencyPromo;
         private static Author _author1, _author2, _author3;
@@ -31,13 +33,15 @@ namespace BookStore
             _cart1 = new Cart
             {
                 Stock = _stock, PromoCode = _freeBookPromo,
-                Books = new List<IBook> {_eBook1, _paperBook1, _paperBook2}
+                Books = new List<IBook> {_eBook1, _paperBook1, _paperBook2},
+                Deliver = _deliver
             };
 
             _cart2 = new Cart
             {
                 Stock = _stock, PromoCode = _freeDeliverPromo,
-                Books = new List<IBook> {_eBook2, _paperBook3, _paperBook4}
+                Books = new List<IBook> {_eBook2, _paperBook3, _paperBook4},
+                Deliver = _deliver
             };
         }
 
@@ -92,6 +96,10 @@ namespace BookStore
             _freeDeliverPromo = new FreeDeliverPromoCode();
             _percentPromo = new SalePercentPromoCode(30);
             _saleCurrencyPromo = new SaleCurrencyPromoCode(200);
+            _deliver = new FreeDeliverForTwoBooksAuthor
+            {
+                Value = 200
+            };
         }
     }
 }
