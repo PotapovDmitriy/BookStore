@@ -5,7 +5,7 @@ namespace BookStore.Models
 {
     public class Cart
     {
-        public IStock Stock { get; set; }
+        public IPromo Promo { get; set; }
         public IPromoCode PromoCode { get; set; }
         public List<IBook> Books { get; set; }
         public IDeliver Deliver { get; set; }

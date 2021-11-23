@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using BookStore.Interfaces;
+﻿using System.Linq;
 using BookStore.Models;
-using BookStore.Models.Books;
 using BookStore.Models.PromoCodes.Items;
 
 namespace BookStore.Services
@@ -14,7 +11,7 @@ namespace BookStore.Services
         public static double GetFinalPrice(Cart cart)
         {
             var totalSum = cart.Books.Select(i => i.Price).Sum();
-            var stockSale = cart.Stock.GetSaleSum(cart.Books);
+            var stockSale = cart.Promo.GetSaleSum(cart.Books);
             var finalDeliverPrice = cart.Deliver.GetDeliverPrice(cart.Books);
             var intermediatePrice = totalSum + finalDeliverPrice;
             var promoCodeItem = new PromoCodeItem(cart.Books, intermediatePrice, cart.Deliver.Value);

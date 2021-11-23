@@ -13,7 +13,7 @@ namespace BookStore
 {
     class Program
     {
-        private static IStock _stock;
+        private static IPromo _promo;
         private static IDeliver _deliver;
         private static Cart _cart1, _cart2;
         private static IPromoCode _freeBookPromo, _freeDeliverPromo, _percentPromo, _saleCurrencyPromo;
@@ -32,14 +32,14 @@ namespace BookStore
         {
             _cart1 = new Cart
             {
-                Stock = _stock, PromoCode = _freeBookPromo,
+                Promo = _promo, PromoCode = _freeBookPromo,
                 Books = new List<IBook> {_eBook1, _paperBook1, _paperBook2},
                 Deliver = _deliver
             };
 
             _cart2 = new Cart
             {
-                Stock = _stock, PromoCode = _freeDeliverPromo,
+                Promo = _promo, PromoCode = _freeDeliverPromo,
                 Books = new List<IBook> {_eBook2, _paperBook3, _paperBook4},
                 Deliver = _deliver
             };
@@ -91,7 +91,7 @@ namespace BookStore
             {
                 Author = _author3, Name = "Бумажная книга 5", Price = 800, Year = 2019, EditorialOfficeName = "Name"
             };
-            _stock = new FreeEBookStock();
+            _promo = new FreeEBookPromo();
             _freeBookPromo = new FreeBookPromoCode(_paperBook3);
             _freeDeliverPromo = new FreeDeliverPromoCode();
             _percentPromo = new SalePercentPromoCode(30);

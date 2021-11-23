@@ -5,7 +5,7 @@ using BookStore.Models.Books;
 
 namespace BookStore.Models.Stocks
 {
-    public class FreeEBookStock : IStock
+    public class FreeEBookPromo : IPromo
     {
         public double GetSaleSum(List<IBook> books)
         {

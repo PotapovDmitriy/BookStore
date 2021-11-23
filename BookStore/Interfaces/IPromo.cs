@@ -2,7 +2,7 @@
 
 namespace BookStore.Interfaces
 {
-    public interface IStock
+    public interface IPromo
     {
         double GetSaleSum(List<IBook> books);
     }
