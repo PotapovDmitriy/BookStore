@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BookStore.Interfaces;
 
 namespace BookStore.Models.PromoCodes
@@ -10,6 +11,6 @@ namespace BookStore.Models.PromoCodes
         public double Value { get; set; }
 
         public double GetSaleSum(IPromoCodeItem item)
-            => Value;
+            => item.TotalSum is null ? 0 : Math.Min((double)item.TotalSum, Value);
     }
 }
