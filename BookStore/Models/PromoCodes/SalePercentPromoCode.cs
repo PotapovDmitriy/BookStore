@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using BookStore.Interfaces;
 
 namespace BookStore.Models.PromoCodes
@@ -7,6 +7,9 @@ namespace BookStore.Models.PromoCodes
     {
         public SalePercentPromoCode(double value)
         {
+            if (value > 100 || value < 0)
+                throw new ArgumentOutOfRangeException(nameof(Value));
+
             Value = value;
         }
 
